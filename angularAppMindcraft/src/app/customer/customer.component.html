@@ -1,0 +1,69 @@
+
+<nav class="navbar navbar-dark bg-dark justify-content-end">
+    <span class="navbar-brand mb-0 h1">
+          Welcome {{loginUserFirstName}}
+    </span>
+    <a class="navbar-brand mb-0 h1 underline" (click)="logout()" >
+          <u>Logout</u></a>
+</nav>
+<form [formGroup]="custObject.formCustomerGroup">
+    <table>
+    <tr>
+        <th>Customer ID</th>
+        <td><input type="text" [(ngModel)]="custObject.Id"  formControlName="CustomerIdControl"/>
+         <span style="color:red" *ngIf="custObject.formCustomerGroup.controls['CustomerIdControl'].dirty" 
+         [hidden]="!(hasError('pattern','CustomerIdControl'))">
+        Customer Id is not in suitable format
+        </span>
+        
+        </td>
+    </tr>
+    <tr>
+        <th>Customer Name</th>
+        <td><input type="text" [(ngModel)]="custObject.Name"  formControlName="CustomerNameControl"/></td>
+
+        <span style="color:red" *ngIf="custObject.formCustomerGroup.controls['CustomerNameControl'].dirty" 
+        [hidden]="!(hasError('required','CustomerNameControl'))">
+       Customer Name is not in suitable format
+       </span>
+    </tr>
+    <tr>
+        <th>Customer Account</th>
+        <td><input type="text" [(ngModel)]="custObject.Amount" [ngModelOptions]="{standalone:true}"/></td>
+        
+    </tr>
+</table>
+
+
+
+<button type="button" (click)="clear()"> clear </button>
+<button type="button" (click)="add()" [disabled]="!(custObject.formCustomerGroup.valid)">add</button>
+<button type="button" (click)="update()">update</button>
+<button type="button" (click)="delete()">Delete</button>
+<button type="button" (click)="postToServer()">Post JSON</button>
+<button type="button" (click)="deleteFromServer()">Delete JSON</button>
+<button type="button" (click)=" updateToServer()">Updates JSON</button>
+</form>
+<!-- <table class="table table-bordered border-primary" style="width: 50pc;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Action</th> 
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of customers; let i = index">
+            <td>{{ item.Id }}</td>
+            <td>{{ item.Name }}</td>
+            <td>{{ item.Amount }}</td>
+            <td><button type="button" (click)="select(item)">Select</button></td> 
+        </tr>
+    </tbody>
+</table> -->
+
+<app-grid [grid-title]="'Customer Details'" [grid-data]="customers" (grid-selected)="select($event)">
+
+</app-grid>

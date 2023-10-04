@@ -1,0 +1,97 @@
+<form #f="ngForm">
+ 
+    <p>
+      <label for="firstname">First Name </label>
+      <input type="text" id="firstname" name="firstname" required minlength="3" 
+        [(ngModel)]="contact.firstname" #firstName="ngModel">
+
+        <span *ngIf="!firstName?.valid && (firstName?.dirty|| firstName?.touched)" 
+        class="text-danger">
+    <span *ngIf="firstName.errors.required">
+        First Name is required
+
+    </span>
+    <span *ngIf="firstName.errors.minlength">
+        First name minimum lenghtis {{firstName.errors.minlength?.requiredLength}}
+
+    </span>
+</span>
+    </p>
+     
+    <p>
+      <label for="lastname">Last Name </label>
+      <input type="text" id="lastname" name="lastname" required maxlength="15" 
+              pattern="^[a-zA-Z]+$"  [(ngModel)]="contact.lastname" #lastName="ngModel">
+
+
+              <span *ngIf="!lastName?.valid && (lastName?.dirty|| lastName?.touched)" 
+              class="text-danger">
+          <span *ngIf="lastName.errors.required">
+              Last Name is required
+      
+          </span>
+          <span *ngIf="firstName.errors.maxlength">
+              First name maximum lenght is {{firstName.errors.maxlength?.requiredLength}}
+      
+          </span>
+          
+      </span>
+    </p>
+    
+   
+   
+    <p>
+      <label for="email">email </label>
+      <input type="text" id="email" name="email" required email  [(ngModel)]="contact.email" #email="ngModel">
+      <span *ngIf="!email?.valid && (email?.dirty|| email?.touched)" 
+              class="text-danger">
+          <span *ngIf="email.errors.required">
+              Email is required
+      
+          </span>
+          <span *ngIf="email.errors.email">
+              Your Email should be in correct format  
+      
+          </span>
+          
+      </span>
+    
+    </p>
+  
+   
+    <p>
+      <label for="gender">Geneder </label>
+      <input type="radio" value="male" id="gender" name="gender"  required [(ngModel)]="contact.gender" #gender="ngModel">
+      Male
+     
+    
+    
+
+      <input type="radio" value="female" id="gender" name="gender"  required
+        [(ngModel)]="contact.gender" #gender="ngModel"> Female
+    </p>
+   
+    <span *ngIf="!gender?.valid && (gender?.dirty|| gender?.touched)" 
+              class="text-danger">
+      <span *ngIf="gender.errors.required">
+        Gender is required
+</span>
+    </span>
+   
+    <p>
+      <label for="isToc">Accept TOC</label>
+      <input type="checkbox" id="isToc" name="isToc" required [(ngModel)]="contact.isToc" #isToc="ngModel">
+    </p>
+    <span *ngIf="!isToc?.valid && (isToc?.dirty|| isToc?.touched)" 
+    class="text-danger">
+<span *ngIf="isToc.errors.required">
+It should be checked
+</span>
+</span>
+    <p>
+      <button type="button" [disabled]="!f.valid" >Submit</button>
+    </p>
+   
+   
+   
+  </form>

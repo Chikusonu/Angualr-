@@ -1,0 +1,19 @@
+{
+  "customer": [
+    {
+      "id": 5001,
+      "CustName": "wwwww11",
+      "Amount": "212122"
+    },
+    {
+      "id": "1231",
+      "CustName": "www",
+      "Amount": "6766"
+    },
+    {
+      "id": "2323",
+      "CustName": "greeennn",
+      "Amount": "676898"
+    }
+  ]
+}

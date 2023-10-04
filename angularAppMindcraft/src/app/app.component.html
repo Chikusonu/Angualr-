@@ -1,0 +1,54 @@
+<h2 style="text-align: center; color: blue;">
+welcome to angular 
+</h2>
+<!-- <h4>String Interpolation </h4>
+{{title}}
+<br/>
+{{count}}
+<hr/>
+<home-ui></home-ui>
+<app-customer></app-customer>
+<app-products>0</app-products> -->
+<div style="text-align: center;">
+    <a [routerLink]="['home']">Home</a> &nbsp; &nbsp;
+    <a [routerLink]="['login']">Login</a> &nbsp; &nbsp;
+    <a [routerLink]="['customer']">Customer</a> &nbsp; &nbsp;
+    <a [routerLink]="['product']">Products</a>  &nbsp; &nbsp;
+    <a [routerLink]="['contact']">Contacts</a>  &nbsp; &nbsp;
+    <a [routerLink]="['crossfield']">Cross Field validation</a>  &nbsp; &nbsp;
+    <a [routerLink]="['formarray']">Dynamic Form Array Demo</a>  &nbsp; &nbsp;
+</div>
+<div [@fadeAnimation]="o.isActivated?o.activatedRoute:''">
+    <router-outlet #o="outlet"></router-outlet>
+</div>
+
+
+
+<h2 style="text-align: center;">
+Angular Material 
+</h2>
+
+<mat-slide-toggle>Toggle me</mat-slide-toggle>
+
+<b>Date format:</b> My joining Date is {{printDate | date}}.<br/>  
+<b>Specific Date Format:</b> My joining Date is {{printDate | date:"dd/MM/yyyy"}}<br/>  
+<b>Full Date Format:</b> My joining Date is {{printDate | date:"fullDate"}}<br/>  
+<b>Short Time format:</b> My joining Date is {{printDate | date:"shortTime"}}<br/>  
+<b>Medium Date format:</b> My joining Date is {{printDate | date:"mediumDate"}}<br/> 
+
+Grade : {{10 | percent}} <br/>  
+decimal : {{2000.34868 | number:'1.2-2'}}  <br/>
+currency : {{500 | currency : 'USD' }}  <br/>
+currency : {{500 | currency : 'EUR' }}  <br/>
+currency : {{500 | currency : 'INR' }}  <br/>
+
+<br>
+<br>
+<br>
+<br>
+<footer>
+    <hr/>
+<div style="text-align:center;color:lightskyblue">
+    Designed By Pralhad
+</div>
+</footer>
